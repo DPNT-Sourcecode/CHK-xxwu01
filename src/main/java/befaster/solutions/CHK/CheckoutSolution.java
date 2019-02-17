@@ -51,7 +51,7 @@ public class CheckoutSolution {
 		return totalPrice;
 	}
 
-	private int calculatePriceForItems(final Character sku, int count) {
+	private int calculatePriceForItems(final Character sku, int countInTheBasket) {
 		int price = 0;
 		final List<Offer> offers = offersMap.get(sku);
 		if (offers != null) {
@@ -62,16 +62,16 @@ public class CheckoutSolution {
 					price -= amountToBeDeducted;
 				} else {
 					final int offerCount = offer.getRequiredCount();
-					final int i = count / offerCount;
-					count = count % offerCount;
+					final int i = countInTheBasket / offerCount;
+					countInTheBasket = countInTheBasket % offerCount;
 
 					intermediatePrice += (i * offer.getPrice());
 				}
 			}
-			intermediatePrice += count * individualPrice.get(sku);
+			intermediatePrice += countInTheBasket * individualPrice.get(sku);
 			price += intermediatePrice;
 		} else {
-			price += count * individualPrice.get(sku);
+			price += countInTheBasket * individualPrice.get(sku);
 		}
 		return price;
 	}
@@ -112,6 +112,7 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
 
 
