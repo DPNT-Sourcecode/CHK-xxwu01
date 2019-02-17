@@ -153,4 +153,11 @@ public class CheckoutTest {
 		final int checkout = solution.checkout("FFFFFF");
 		assertEquals(40, checkout);
 	}
+
+	@Test
+	public void testABCDEFGHIJKLMNOPQRSTUVWXYZ() {
+		final int checkout = solution.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+		assertEquals(965, checkout);
+	}
 }
+
