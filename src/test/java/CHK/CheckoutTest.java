@@ -112,5 +112,3 @@ public class CheckoutTest {
 		assertEquals(110, checkout);
 	}
 }
-
-
