@@ -38,6 +38,11 @@ public class CheckoutSolution {
 		offersMap.put('F', offersF);
 	}
 
+	public static void main(final String[] args) {
+		final int checkout = new CheckoutSolution().checkout("FFF");
+		System.out.println(checkout);
+	}
+
 	public Integer checkout(final String skus) {
 		try {
 			populateCheckoutBasket(skus);
@@ -131,6 +136,7 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
 
 
