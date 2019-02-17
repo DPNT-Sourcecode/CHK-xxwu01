@@ -5,22 +5,36 @@ import java.util.Map;
 
 public class CheckoutSolution {
 
-	private final Map<Character, Integer> map = new HashMap<>();
+	private final Map<Character, Integer> individualPrice = new HashMap<>();
 	private final Map<Character, Offer> offersMap = new HashMap<>();
+	private final Map<Character, Integer> checkoutBasket = new HashMap<>();
 
 	public CheckoutSolution() {
-		map.put('A', 50);
-		map.put('B', 30);
-		map.put('C', 20);
-		map.put('D', 15);
+		individualPrice.put('A', 50);
+		individualPrice.put('B', 30);
+		individualPrice.put('C', 20);
+		individualPrice.put('D', 15);
 
 		offersMap.put('A', new Offer(3, 130));
 		offersMap.put('B', new Offer(2, 45));
 	}
 
 	public Integer checkout(final String skus) {
-//		final char[] charArray = skus.toCharArray();
+		populateCheckoutBasket(skus);
 
 		return 50;
 	}
+
+	private void populateCheckoutBasket(final String skus) {
+		final char[] charArray = skus.toUpperCase().toCharArray();
+		for (final char sku : charArray) {
+			Integer currentCount = checkoutBasket.get(sku);
+			if (currentCount == null) {
+				checkoutBasket.put(sku, 1);
+			} else {
+				checkoutBasket.put(sku, ++currentCount);
+			}
+		}
+	}
 }
+
