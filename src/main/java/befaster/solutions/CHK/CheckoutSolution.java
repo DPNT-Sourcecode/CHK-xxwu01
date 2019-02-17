@@ -31,6 +31,9 @@ public class CheckoutSolution {
 		individualPrice.put('P', 50);
 		individualPrice.put('Q', 30);
 		individualPrice.put('R', 50);
+		individualPrice.put('S', 30);
+		individualPrice.put('T', 20);
+		individualPrice.put('U', 40);
 
 		final List<Offer> offersA = new ArrayList<>();
 		offersA.add(new Offer(5, 200, null, 0));
@@ -64,11 +67,19 @@ public class CheckoutSolution {
 
 		final List<Offer> offersP = new ArrayList<>();
 		offersP.add(new Offer(5, 200, null, 0));
-		offersMap.put('N', offersP);
+		offersMap.put('P', offersP);
 
 		final List<Offer> offersQ = new ArrayList<>();
 		offersQ.add(new Offer(3, 80, null, 0));
-		offersMap.put('N', offersQ);
+		offersMap.put('Q', offersQ);
+
+		final List<Offer> offersR = new ArrayList<>();
+		offersR.add(new Offer(3, 0, 'Q', 1));
+		offersMap.put('R', offersR);
+
+		final List<Offer> offersU = new ArrayList<>();
+		offersU.add(new Offer(3, 0, 'U', 1));
+		offersMap.put('U', offersU);
 	}
 
 	public Integer checkout(final String skus) {
@@ -180,5 +191,6 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
 
