@@ -83,10 +83,11 @@ public class CheckoutSolution {
 					intermediatePrice += (i * offer.getPrice());
 				}
 			}
-			intermediatePrice += countInTheBasket * individualPrice.get(sku);
+			intermediatePrice += checkoutBasket.get(sku) * individualPrice.get(sku);
 			price += intermediatePrice;
 		} else {
-			price += countInTheBasket * individualPrice.get(sku);
+
+			price += checkoutBasket.get(sku) * individualPrice.get(sku);
 		}
 		return price;
 	}
@@ -126,6 +127,7 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
 
 
