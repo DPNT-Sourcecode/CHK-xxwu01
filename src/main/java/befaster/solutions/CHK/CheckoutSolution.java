@@ -2,6 +2,7 @@ package befaster.solutions.CHK;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class CheckoutSolution {
 
@@ -21,7 +22,11 @@ public class CheckoutSolution {
 
 	public Integer checkout(final String skus) {
 		populateCheckoutBasket(skus);
+		final Set<Character> keySet = checkoutBasket.keySet();
+		for (final Character sku : keySet) {
+			final Integer count = checkoutBasket.get(sku);
 
+		}
 		return 50;
 	}
 
@@ -37,4 +42,5 @@ public class CheckoutSolution {
 		}
 	}
 }
+
 
