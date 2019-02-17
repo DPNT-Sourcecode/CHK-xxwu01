@@ -21,12 +21,10 @@ public class CheckoutSolution {
 	}
 
 	public Integer checkout(final String skus) {
-		if (skus.equals("ABCD")) {
-			return 115;
-		}
 		try {
 			populateCheckoutBasket(skus);
 		} catch (final InvalidSkuException e) {
+			checkoutBasket.clear();
 			return -1;
 		}
 		int totalPrice = 0;
@@ -69,6 +67,7 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
 
 

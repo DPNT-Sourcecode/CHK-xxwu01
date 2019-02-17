@@ -11,6 +11,12 @@ public class CheckoutTest {
 	final CheckoutSolution solution = new CheckoutSolution();
 
 	@Test
+	public void testA() {
+		final int checkout = solution.checkout("A");
+		assertEquals(50, checkout);
+	}
+
+	@Test
 	public void testB() {
 		final int checkout = solution.checkout("B");
 		assertEquals(30, checkout);
@@ -40,5 +46,6 @@ public class CheckoutTest {
 		assertEquals(115, checkout);
 	}
 }
+
 
 
