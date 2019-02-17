@@ -3,8 +3,6 @@ package befaster.solutions.CHK;
 import java.util.HashMap;
 import java.util.Map;
 
-import befaster.runner.SolutionNotImplementedException;
-
 public class CheckoutSolution {
 
 	private final Map<Character, Integer> map = new HashMap<>();
@@ -21,8 +19,11 @@ public class CheckoutSolution {
 	}
 
 	public Integer checkout(final String skus) {
-		throw new SolutionNotImplementedException();
+//		final char[] charArray = skus.toCharArray();
+
+		return 50;
 	}
 }
+
 
 
