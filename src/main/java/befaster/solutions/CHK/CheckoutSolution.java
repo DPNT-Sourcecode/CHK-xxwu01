@@ -113,6 +113,16 @@ public class CheckoutSolution {
 			totalPrice += priceForItemsE;
 			checkoutBasket.remove('E');
 		}
+		if (checkoutBasket.containsKey('N')) {
+			final int priceForItemsN = calculatePriceForItems('N', checkoutBasket.get('N'));
+			totalPrice += priceForItemsN;
+			checkoutBasket.remove('N');
+		}
+		if (checkoutBasket.containsKey('R')) {
+			final int priceForItemsR = calculatePriceForItems('R', checkoutBasket.get('R'));
+			totalPrice += priceForItemsR;
+			checkoutBasket.remove('R');
+		}
 		final Set<Character> checkoutSkus = checkoutBasket.keySet();
 		for (final Character sku : checkoutSkus) {
 			final Integer count = checkoutBasket.get(sku);
@@ -205,6 +215,7 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
 
 
