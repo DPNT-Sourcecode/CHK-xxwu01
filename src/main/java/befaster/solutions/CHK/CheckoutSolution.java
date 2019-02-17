@@ -45,13 +45,13 @@ public class CheckoutSolution {
 		System.out.println(checkout);
 	}
 
-	private int findCheapest(final Set<Character> group) {
+	private Integer[] findCheapest(final Set<Character> group) {
 		final List<Integer> collect = group.stream().map(x -> individualPrice.get(x)).collect(Collectors.toList());
 
-		final Object[] array = collect.toArray();
+		final Integer[] array = collect.toArray(new Integer[0]);
 		Arrays.sort(array);
 
-		return (int) array[0];
+		return array;
 	}
 
 	public CheckoutSolution() {
@@ -255,3 +255,4 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
