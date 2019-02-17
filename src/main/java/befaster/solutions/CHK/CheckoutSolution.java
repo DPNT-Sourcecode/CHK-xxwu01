@@ -152,6 +152,22 @@ public class CheckoutSolution {
 		return totalPriceF;
 	}
 
+	private int calculatePriceForUs() {
+		final int UsInTheBasket = checkoutBasket.get('U');
+		final Integer priceU = individualPrice.get('U');
+		int totalPriceU = 0;
+		int y = 0;
+		for (int i = 1; i <= UsInTheBasket; i++) {
+			y++;
+			if (y == 4) {
+				y = 0;
+				continue;
+			}
+			totalPriceU += priceU;
+		}
+		return totalPriceU;
+	}
+
 	private void applyFreeItem(final Character sku, final Offer offer) {
 		final int itemsCountInTheBasket = checkoutBasket.get(sku);
 		final int requiredCount = offer.getRequiredCount();
@@ -191,6 +207,7 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
 
 
