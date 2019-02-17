@@ -131,9 +131,14 @@ public class CheckoutTest {
 	}
 
 	@Test
+	public void test2F() {
+		final int checkout = solution.checkout("FF");
+		assertEquals(20, checkout);
+	}
+
+	@Test
 	public void test3F() {
 		final int checkout = solution.checkout("FFF");
 		assertEquals(20, checkout);
 	}
 }
-
