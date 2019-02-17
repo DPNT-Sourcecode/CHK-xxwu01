@@ -35,6 +35,30 @@ public class CheckoutTest {
 	}
 
 	@Test
+	public void test8A() {
+		final int checkout = solution.checkout("AAAAAAAA");
+		assertEquals(330, checkout);
+	}
+
+	@Test
+	public void test9A() {
+		final int checkout = solution.checkout("AAAAAAAAA");
+		assertEquals(380, checkout);
+	}
+
+	@Test
+	public void test9AB() {
+		final int checkout = solution.checkout("AAAAAAAAAB");
+		assertEquals(410, checkout);
+	}
+
+	@Test
+	public void test9A2B() {
+		final int checkout = solution.checkout("AAAAAAAAABB");
+		assertEquals(425, checkout);
+	}
+
+	@Test
 	public void testB() {
 		final int checkout = solution.checkout("B");
 		assertEquals(30, checkout);
@@ -64,3 +88,4 @@ public class CheckoutTest {
 		assertEquals(115, checkout);
 	}
 }
+
