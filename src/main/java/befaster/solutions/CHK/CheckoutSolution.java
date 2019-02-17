@@ -53,10 +53,6 @@ public class CheckoutSolution {
 		offersE.add(new Offer(2, 0, 'B', 1));
 		offersMap.put('E', offersE);
 
-		final List<Offer> offersF = new ArrayList<>();
-		offersF.add(new Offer(2, 0, 'F', 1));
-		offersMap.put('F', offersF);
-
 		final List<Offer> offersH = new ArrayList<>();
 		offersH.add(new Offer(10, 80, null, 0));
 		offersH.add(new Offer(5, 45, null, 0));
@@ -215,10 +211,3 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
-
-
-
-
-
-
-

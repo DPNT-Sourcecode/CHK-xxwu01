@@ -160,4 +160,3 @@ public class CheckoutTest {
 		assertEquals(965, checkout);
 	}
 }
-
