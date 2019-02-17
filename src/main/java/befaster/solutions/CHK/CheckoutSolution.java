@@ -95,15 +95,19 @@ public class CheckoutSolution {
 	private void applyFreeItem(final Character sku, final Offer offer) {
 		final int itemsCountInTheBasket = checkoutBasket.get(sku);
 		final int requiredCount = offer.getRequiredCount();
-		final int timesToApplyOffer = itemsCountInTheBasket / requiredCount;
+		final int amountToRemove = itemsCountInTheBasket / requiredCount;
 		final Character freeItem = offer.getFreeItem();
 		if (!checkoutBasket.containsKey(freeItem)) {
 			return;
 		}
-		for (int y = 0; y < timesToApplyOffer; y++) {
-			Integer integer = checkoutBasket.get(offer.getFreeItem());
+		removeFromBasket(offer.getFreeItem(), amountToRemove);
+	}
+
+	private void removeFromBasket(final Character sku, final int amountToRemove) {
+		for (int y = 0; y < amountToRemove; y++) {
+			Integer integer = checkoutBasket.get(sku);
 			if (integer >= 1) {
-				checkoutBasket.put(offer.getFreeItem(), --integer);
+				checkoutBasket.put(sku, --integer);
 			}
 		}
 	}
@@ -127,6 +131,7 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
 
 
