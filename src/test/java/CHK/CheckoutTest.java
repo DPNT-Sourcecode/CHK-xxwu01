@@ -95,9 +95,22 @@ public class CheckoutTest {
 	}
 
 	@Test
-	public void testEE() {
+	public void test2E() {
 		final int checkout = solution.checkout("EE");
 		assertEquals(80, checkout);
 	}
+
+	@Test
+	public void test2EB() {
+		final int checkout = solution.checkout("EEB");
+		assertEquals(80, checkout);
+	}
+
+	@Test
+	public void test2E2B() {
+		final int checkout = solution.checkout("EEBB");
+		assertEquals(110, checkout);
+	}
 }
+
 
