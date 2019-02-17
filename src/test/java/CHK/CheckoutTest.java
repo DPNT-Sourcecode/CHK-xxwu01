@@ -101,6 +101,18 @@ public class CheckoutTest {
 	}
 
 	@Test
+	public void test2EA() {
+		final int checkout = solution.checkout("EEA");
+		assertEquals(130, checkout);
+	}
+
+	@Test
+	public void test2E2A() {
+		final int checkout = solution.checkout("EEAA");
+		assertEquals(180, checkout);
+	}
+
+	@Test
 	public void test2EB() {
 		final int checkout = solution.checkout("EEB");
 		assertEquals(80, checkout);
@@ -112,3 +124,4 @@ public class CheckoutTest {
 		assertEquals(110, checkout);
 	}
 }
+
