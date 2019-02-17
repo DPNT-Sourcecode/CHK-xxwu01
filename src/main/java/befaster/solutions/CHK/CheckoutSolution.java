@@ -14,6 +14,10 @@ public class CheckoutSolution {
 
 	private final char[] any3 = new char[] { 'S', 'T', 'X', 'Y', 'Z' };
 
+	private void any3() {
+
+	}
+
 	public CheckoutSolution() {
 		individualPrice.put('A', 50);
 		individualPrice.put('B', 30);
@@ -213,6 +217,7 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
 
 
