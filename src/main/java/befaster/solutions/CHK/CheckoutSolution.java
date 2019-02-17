@@ -48,7 +48,7 @@ public class CheckoutSolution {
 	}
 
 	private void populateCheckoutBasket(final String skus) throws InvalidSkuException {
-		final char[] charArray = skus.toUpperCase().toCharArray();
+		final char[] charArray = skus.toCharArray();
 		for (final char sku : charArray) {
 			if (!isValid(sku)) {
 				throw new InvalidSkuException();
@@ -66,4 +66,5 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
