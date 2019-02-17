@@ -154,21 +154,5 @@ public class CheckoutTest {
 		assertEquals(40, checkout);
 	}
 
-	@Test
-	public void testABCDEFGHIJKLMNOPQRSTUVWXYZ() {
-		final int checkout = solution.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-		assertEquals(965, checkout);
-	}
-
-	@Test
-	public void testABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ() {
-		final int checkout = solution.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ");
-		assertEquals(1880, checkout);
-	}
-
-	@Test
-	public void testLGCKAQXFOSKZGIWHNRNDITVBUUEOZXPYAVFDEPTBMQLYJRSMJCWH() {
-		final int checkout = solution.checkout("LGCKAQXFOSKZGIWHNRNDITVBUUEOZXPYAVFDEPTBMQLYJRSMJCWH");
-		assertEquals(1880, checkout);
-	}
 }
+
