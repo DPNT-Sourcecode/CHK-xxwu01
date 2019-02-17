@@ -20,16 +20,16 @@ public class CheckoutSolution {
 		individualPrice.put('E', 40);
 
 		final List<Offer> offersA = new ArrayList<>();
-		offersA.add(new Offer(5, 200, null));
-		offersA.add(new Offer(3, 130, null));
+		offersA.add(new Offer(5, 200, null, 0));
+		offersA.add(new Offer(3, 130, null, 0));
 		offersMap.put('A', offersA);
 
 		final List<Offer> offersB = new ArrayList<>();
-		offersB.add(new Offer(2, 45, null));
+		offersB.add(new Offer(2, 45, null, 0));
 		offersMap.put('B', offersB);
 
 		final List<Offer> offersE = new ArrayList<>();
-		offersE.add(new Offer(2, 1, 'B'));
+		offersE.add(new Offer(2, 0, 'B', 1));
 		offersMap.put('E', offersE);
 	}
 
@@ -57,7 +57,7 @@ public class CheckoutSolution {
 		if (offers != null) {
 			int intermediatePrice = 0;
 			for (final Offer offer : offers) {
-
+				applyFreeItem(offer);
 				final int offerCount = offer.getCount();
 				final int i = count / offerCount;
 				count = count % offerCount;
@@ -70,6 +70,14 @@ public class CheckoutSolution {
 			price += count * individualPrice.get(sku);
 		}
 		return price;
+	}
+
+	private void applyFreeItem(final Offer offer) {
+		if (offer.getFreeItem() != null) {
+			final Integer freeItemPrice = individualPrice.get(offer.getFreeItem());
+			final int freeItemCount = offer.getFreeItemCount();
+			final int amountToBeDeducted = freeItemCount * freeItemCount;
+		}
 	}
 
 	private void populateCheckoutBasket(final String skus) throws InvalidSkuException {
@@ -91,5 +99,6 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
 
