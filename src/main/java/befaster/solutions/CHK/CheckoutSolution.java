@@ -41,6 +41,11 @@ public class CheckoutSolution {
 			return -1;
 		}
 		int totalPrice = 0;
+		if (checkoutBasket.containsKey('E')) {
+			final int priceForItemsE = calculatePriceForItems('E', checkoutBasket.get('E'));
+			totalPrice += priceForItemsE;
+			checkoutBasket.remove('E');
+		}
 		final Set<Character> checkoutSkus = checkoutBasket.keySet();
 		for (final Character sku : checkoutSkus) {
 			final Integer count = checkoutBasket.get(sku);
@@ -117,5 +122,6 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
 
