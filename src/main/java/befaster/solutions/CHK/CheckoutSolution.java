@@ -31,14 +31,14 @@ public class CheckoutSolution {
 		individualPrice.put('P', 50);
 		individualPrice.put('Q', 30);
 		individualPrice.put('R', 50);
-		individualPrice.put('S', 30);
+		individualPrice.put('S', 20);
 		individualPrice.put('T', 20);
 		individualPrice.put('U', 40);
 		individualPrice.put('V', 50);
 		individualPrice.put('W', 20);
-		individualPrice.put('X', 90);
-		individualPrice.put('Y', 10);
-		individualPrice.put('Z', 50);
+		individualPrice.put('X', 17);
+		individualPrice.put('Y', 20);
+		individualPrice.put('Z', 21);
 
 		final List<Offer> offersA = new ArrayList<>();
 		offersA.add(new Offer(5, 200, null, 0));
@@ -185,9 +185,9 @@ public class CheckoutSolution {
 
 	private void removeFromBasket(final Character sku, final int amountToRemove) {
 		for (int y = 0; y < amountToRemove; y++) {
-			Integer integer = checkoutBasket.get(sku);
-			if (integer >= 1) {
-				checkoutBasket.put(sku, --integer);
+			Integer i = checkoutBasket.get(sku);
+			if (i >= 1) {
+				checkoutBasket.put(sku, --i);
 			}
 		}
 	}
@@ -211,5 +211,6 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
 
