@@ -19,6 +19,8 @@ public class CheckoutSolution {
 		individualPrice.put('D', 15);
 		individualPrice.put('E', 40);
 		individualPrice.put('F', 10);
+		individualPrice.put('G', 20);
+		individualPrice.put('H', 10);
 
 		final List<Offer> offersA = new ArrayList<>();
 		offersA.add(new Offer(5, 200, null, 0));
@@ -147,6 +149,7 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
 
 
