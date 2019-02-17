@@ -34,6 +34,7 @@ public class CheckoutSolution {
 		individualPrice.put('S', 30);
 		individualPrice.put('T', 20);
 		individualPrice.put('U', 40);
+		individualPrice.put('V', 50);
 
 		final List<Offer> offersA = new ArrayList<>();
 		offersA.add(new Offer(5, 200, null, 0));
@@ -80,6 +81,11 @@ public class CheckoutSolution {
 		final List<Offer> offersU = new ArrayList<>();
 		offersU.add(new Offer(3, 0, 'U', 1));
 		offersMap.put('U', offersU);
+
+		final List<Offer> offersV = new ArrayList<>();
+		offersV.add(new Offer(3, 130, null, 0));
+		offersV.add(new Offer(2, 90, null, 0));
+		offersMap.put('V', offersV);
 	}
 
 	public Integer checkout(final String skus) {
@@ -90,8 +96,12 @@ public class CheckoutSolution {
 			return -1;
 		}
 		int totalPrice = 0;
+		if (checkoutBasket.containsKey('U')) {
+			totalPrice = calculatePriceForFree('U', 4);
+			checkoutBasket.remove('U');
+		}
 		if (checkoutBasket.containsKey('F')) {
-			totalPrice = calculatePriceForFs();
+			totalPrice = calculatePriceForFree('F', 3);
 			checkoutBasket.remove('F');
 		}
 		if (checkoutBasket.containsKey('E')) {
@@ -136,36 +146,20 @@ public class CheckoutSolution {
 		return price;
 	}
 
-	private int calculatePriceForFs() {
-		final int FsInTheBasket = checkoutBasket.get('F');
-		final Integer priceF = individualPrice.get('F');
-		int totalPriceF = 0;
+	private int calculatePriceForFree(final Character sku, final int free) {
+		final int amountInTheBasket = checkoutBasket.get(sku);
+		final Integer price = individualPrice.get(sku);
+		int totalPrice = 0;
 		int y = 0;
-		for (int i = 1; i <= FsInTheBasket; i++) {
+		for (int i = 1; i <= amountInTheBasket; i++) {
 			y++;
-			if (y == 3) {
+			if (y == free) {
 				y = 0;
 				continue;
 			}
-			totalPriceF += priceF;
+			totalPrice += price;
 		}
-		return totalPriceF;
-	}
-
-	private int calculatePriceForUs() {
-		final int UsInTheBasket = checkoutBasket.get('U');
-		final Integer priceU = individualPrice.get('U');
-		int totalPriceU = 0;
-		int y = 0;
-		for (int i = 1; i <= UsInTheBasket; i++) {
-			y++;
-			if (y == 4) {
-				y = 0;
-				continue;
-			}
-			totalPriceU += priceU;
-		}
-		return totalPriceU;
+		return totalPrice;
 	}
 
 	private void applyFreeItem(final Character sku, final Offer offer) {
@@ -207,6 +201,7 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
 
 
