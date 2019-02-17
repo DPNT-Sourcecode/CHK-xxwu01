@@ -15,7 +15,11 @@ public class CheckoutSolution {
 	private final char[] any3 = new char[] { 'S', 'T', 'X', 'Y', 'Z' };
 
 	private void any3() {
-
+		int totalCount = 0;
+		for (final char c : any3) {
+			totalCount += checkoutBasket.get(c);
+		}
+		final int any3price = (totalCount / 3) * 45;
 	}
 
 	public CheckoutSolution() {
@@ -217,3 +221,4 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
