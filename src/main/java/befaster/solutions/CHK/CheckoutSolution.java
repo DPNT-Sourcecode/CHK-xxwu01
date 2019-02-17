@@ -61,9 +61,9 @@ public class CheckoutSolution {
 					final int amountToBeDeducted = applyFreeItem(sku, offer);
 					price -= amountToBeDeducted;
 				} else {
-					final int offerCount = offer.getRequiredCount();
-					final int i = countInTheBasket / offerCount;
-					countInTheBasket = countInTheBasket % offerCount;
+					final int offerRequiredCount = offer.getRequiredCount();
+					final int i = countInTheBasket / offerRequiredCount;
+					countInTheBasket = countInTheBasket % offerRequiredCount;
 
 					intermediatePrice += (i * offer.getPrice());
 				}
@@ -112,6 +112,7 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
 
 
