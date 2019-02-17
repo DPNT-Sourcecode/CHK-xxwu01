@@ -2,15 +2,20 @@ package befaster.solutions.CHK;
 
 public class Offer {
 
-	private Character sku;
+	private int count;
 	private int price;
 
-	public Character getSku() {
-		return sku;
+	public Offer(final int count, final int price) {
+		this.count = count;
+		this.price = price;
 	}
 
-	public void setSku(final Character sku) {
-		this.sku = sku;
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(final int count) {
+		this.count = count;
 	}
 
 	public int getPrice() {
@@ -21,3 +26,4 @@ public class Offer {
 		this.price = price;
 	}
 }
+
