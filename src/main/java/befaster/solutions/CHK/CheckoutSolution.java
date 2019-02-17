@@ -58,8 +58,8 @@ public class CheckoutSolution {
 			int intermediatePrice = 0;
 			for (final Offer offer : offers) {
 				if (offer.getFreeItem() != null) {
-					final int amountToBeDeducted = applyFreeItem(sku, offer);
-					price -= amountToBeDeducted;
+					applyFreeItem(sku, offer);
+//					price -= amountToBeDeducted;
 				} else {
 					final int offerRequiredCount = offer.getRequiredCount();
 					final int i = countInTheBasket / offerRequiredCount;
@@ -77,21 +77,25 @@ public class CheckoutSolution {
 		return price;
 	}
 
-	private int applyFreeItem(final Character sku, final Offer offer) {
+	private void applyFreeItem(final Character sku, final Offer offer) {
 		final int itemsCountInTheBasket = checkoutBasket.get(sku);
 		final int requiredCount = offer.getRequiredCount();
-		int amountToBeDeducted = 0;
+//		final int amountToBeDeducted = 0;
 		final int timesToApplyOffer = itemsCountInTheBasket / requiredCount;
 		final Character freeItem = offer.getFreeItem();
 		if (!checkoutBasket.containsKey(freeItem)) {
-			return 0;
+			return;
 		}
 		for (int y = 0; y < timesToApplyOffer; y++) {
-			final int freeItemCount = offer.getFreeItemCount();
-			final Integer freeItemPrice = individualPrice.get(offer.getFreeItem());
-			amountToBeDeducted += freeItemCount * freeItemPrice;
+//			final int freeItemCount = offer.getFreeItemCount();
+			Integer integer = checkoutBasket.get(offer.getFreeItem());
+			if (integer >= 1) {
+				checkoutBasket.put(offer.getFreeItem(), --integer);
+			}
+//			final Integer freeItemPrice = individualPrice.get(offer.getFreeItem());
+//			amountToBeDeducted += freeItemCount * freeItemPrice;
 		}
-		return amountToBeDeducted;
+//		return amountToBeDeducted;
 	}
 
 	private void populateCheckoutBasket(final String skus) throws InvalidSkuException {
@@ -113,4 +117,5 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
