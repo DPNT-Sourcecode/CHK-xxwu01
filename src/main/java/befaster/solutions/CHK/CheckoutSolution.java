@@ -67,7 +67,3 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
-
-
-
-
