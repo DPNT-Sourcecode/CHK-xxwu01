@@ -47,14 +47,8 @@ public class CheckoutSolution {
 
 	private int findCheapest(final Set<Character> group) {
 		final List<Integer> collect = group.stream().map(x -> individualPrice.get(x)).collect(Collectors.toList());
-//		final Integer priceS = individualPrice.get('S');
-//		final Integer priceT = individualPrice.get('T');
-//		final Integer priceX = individualPrice.get('X');
-//		final Integer priceY = individualPrice.get('Y');
-//		final Integer priceZ = individualPrice.get('Z');
 
 		final Object[] array = collect.toArray();
-//		final int[] prices = new int[] { priceS, priceT, priceX, priceY, priceZ };
 		Arrays.sort(array);
 
 		return (int) array[0];
@@ -261,6 +255,7 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
 
 
