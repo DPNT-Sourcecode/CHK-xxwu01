@@ -97,11 +97,11 @@ public class CheckoutSolution {
 		}
 		int totalPrice = 0;
 		if (checkoutBasket.containsKey('U')) {
-			totalPrice = calculatePriceForFree('U', 4);
+			totalPrice += calculatePriceForFree('U', 4);
 			checkoutBasket.remove('U');
 		}
 		if (checkoutBasket.containsKey('F')) {
-			totalPrice = calculatePriceForFree('F', 3);
+			totalPrice += calculatePriceForFree('F', 3);
 			checkoutBasket.remove('F');
 		}
 		if (checkoutBasket.containsKey('E')) {
@@ -211,3 +211,4 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
