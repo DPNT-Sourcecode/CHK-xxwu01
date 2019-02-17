@@ -94,7 +94,15 @@ public class CheckoutSolution {
 	}
 
 	private int calculatePriceForFs() {
-		final int itemsCountInTheBasket = checkoutBasket.get('F');
+		final int FsInTheBasket = checkoutBasket.get('F');
+		final Integer priceF = individualPrice.get('F');
+		int totalPriceF = 0;
+		for (int i = 1; i <= FsInTheBasket; i++) {
+			totalPriceF += priceF;
+			if (i % 2 == 0) {
+				i++;
+			}
+		}
 	}
 
 	private void applyFreeItem(final Character sku, final Offer offer) {
@@ -136,4 +144,5 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
