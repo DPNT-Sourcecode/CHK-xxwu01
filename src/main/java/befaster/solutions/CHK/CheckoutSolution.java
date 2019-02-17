@@ -1,13 +1,14 @@
 package befaster.solutions.CHK;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 public class CheckoutSolution {
 
 	private final Map<Character, Integer> individualPrice = new HashMap<>();
-	private final Map<Character, Offer> offersMap = new HashMap<>();
+	private final Map<Character, List<Offer>> offersMap = new HashMap<>();
 	private final Map<Character, Integer> checkoutBasket = new HashMap<>();
 
 	public CheckoutSolution() {
@@ -67,3 +68,4 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
