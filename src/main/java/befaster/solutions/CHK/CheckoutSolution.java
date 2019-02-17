@@ -32,6 +32,10 @@ public class CheckoutSolution {
 		final List<Offer> offersE = new ArrayList<>();
 		offersE.add(new Offer(2, 0, 'B', 1));
 		offersMap.put('E', offersE);
+
+		final List<Offer> offersF = new ArrayList<>();
+		offersF.add(new Offer(2, 0, 'F', 1));
+		offersMap.put('F', offersF);
 	}
 
 	public Integer checkout(final String skus) {
@@ -117,4 +121,5 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 

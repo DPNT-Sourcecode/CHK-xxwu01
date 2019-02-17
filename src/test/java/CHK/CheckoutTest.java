@@ -123,4 +123,17 @@ public class CheckoutTest {
 		final int checkout = solution.checkout("EEBB");
 		assertEquals(110, checkout);
 	}
+
+	@Test
+	public void testF() {
+		final int checkout = solution.checkout("F");
+		assertEquals(10, checkout);
+	}
+
+	@Test
+	public void test3F() {
+		final int checkout = solution.checkout("FFF");
+		assertEquals(20, checkout);
+	}
 }
+
