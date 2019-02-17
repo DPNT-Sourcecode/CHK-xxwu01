@@ -93,4 +93,11 @@ public class CheckoutTest {
 		final int checkout = solution.checkout("E");
 		assertEquals(40, checkout);
 	}
+
+	@Test
+	public void testEE() {
+		final int checkout = solution.checkout("EE");
+		assertEquals(80, checkout);
+	}
 }
+
