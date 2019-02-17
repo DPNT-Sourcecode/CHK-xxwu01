@@ -22,6 +22,7 @@ public class CheckoutSolution {
 
 	public Integer checkout(final String skus) {
 		populateCheckoutBasket(skus);
+		int totalPrice = 0;
 		final Set<Character> keySet = checkoutBasket.keySet();
 		for (final Character sku : keySet) {
 			final Integer count = checkoutBasket.get(sku);
@@ -32,10 +33,13 @@ public class CheckoutSolution {
 				final int y = count % offerCount;
 
 				final int price = (i * offer.getPrice()) + (y * individualPrice.get(sku));
+				totalPrice += price;
+			} else {
+				totalPrice += count * individualPrice.get(sku);
 			}
 
 		}
-		return 50;
+		return totalPrice;
 	}
 
 	private void populateCheckoutBasket(final String skus) {
@@ -50,6 +54,7 @@ public class CheckoutSolution {
 		}
 	}
 }
+
 
 
 
