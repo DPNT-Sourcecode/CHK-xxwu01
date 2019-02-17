@@ -64,7 +64,6 @@ public class CheckoutSolution {
 			for (final Offer offer : offers) {
 				if (offer.getFreeItem() != null) {
 					applyFreeItem(sku, offer);
-//					price -= amountToBeDeducted;
 				} else {
 					final int offerRequiredCount = offer.getRequiredCount();
 					final int i = countInTheBasket / offerRequiredCount;
@@ -85,22 +84,17 @@ public class CheckoutSolution {
 	private void applyFreeItem(final Character sku, final Offer offer) {
 		final int itemsCountInTheBasket = checkoutBasket.get(sku);
 		final int requiredCount = offer.getRequiredCount();
-//		final int amountToBeDeducted = 0;
 		final int timesToApplyOffer = itemsCountInTheBasket / requiredCount;
 		final Character freeItem = offer.getFreeItem();
 		if (!checkoutBasket.containsKey(freeItem)) {
 			return;
 		}
 		for (int y = 0; y < timesToApplyOffer; y++) {
-//			final int freeItemCount = offer.getFreeItemCount();
 			Integer integer = checkoutBasket.get(offer.getFreeItem());
 			if (integer >= 1) {
 				checkoutBasket.put(offer.getFreeItem(), --integer);
 			}
-//			final Integer freeItemPrice = individualPrice.get(offer.getFreeItem());
-//			amountToBeDeducted += freeItemCount * freeItemPrice;
 		}
-//		return amountToBeDeducted;
 	}
 
 	private void populateCheckoutBasket(final String skus) throws InvalidSkuException {
@@ -122,6 +116,7 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
 
 
