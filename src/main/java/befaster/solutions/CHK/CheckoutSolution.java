@@ -80,10 +80,13 @@ public class CheckoutSolution {
 		if (offer.getFreeItem() != null) {
 			final int itemsCountInTheBasket = checkoutBasket.get(sku);
 			final int requiredCount = offer.getRequiredCount();
-			final int i = itemsCountInTheBasket / requiredCount;
-			final int freeItemCount = offer.getFreeItemCount();
-			final Integer freeItemPrice = individualPrice.get(offer.getFreeItem());
-			final int amountToBeDeducted = freeItemCount * freeItemPrice;
+			int amountToBeDeducted = 0;
+			final int freeItemsToBeGiven = itemsCountInTheBasket / requiredCount;
+			for (int y = 0; y < freeItemsToBeGiven; y++) {
+				final int freeItemCount = offer.getFreeItemCount();
+				final Integer freeItemPrice = individualPrice.get(offer.getFreeItem());
+				amountToBeDeducted += freeItemCount * freeItemPrice;
+			}
 			return amountToBeDeducted;
 		}
 		return 0;
@@ -108,5 +111,6 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
 
