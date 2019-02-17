@@ -35,4 +35,12 @@ public class CheckoutTest {
 		final int checkout = solution.checkout("AB");
 		assertEquals(80, checkout);
 	}
+
+	@Test
+	public void testABCD() {
+		final CheckoutSolution solution = new CheckoutSolution();
+		final int checkout = solution.checkout("ABCD");
+		assertEquals(115, checkout);
+	}
 }
+
