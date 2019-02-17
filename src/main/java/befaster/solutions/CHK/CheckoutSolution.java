@@ -93,6 +93,10 @@ public class CheckoutSolution {
 		return price;
 	}
 
+	private int calculatePriceForFs() {
+		final int itemsCountInTheBasket = checkoutBasket.get('F');
+	}
+
 	private void applyFreeItem(final Character sku, final Offer offer) {
 		final int itemsCountInTheBasket = checkoutBasket.get(sku);
 		final int requiredCount = offer.getRequiredCount();
@@ -132,3 +136,4 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
