@@ -25,6 +25,14 @@ public class CheckoutSolution {
 		final Set<Character> keySet = checkoutBasket.keySet();
 		for (final Character sku : keySet) {
 			final Integer count = checkoutBasket.get(sku);
+			final Offer offer = offersMap.get(sku);
+			if (offer != null) {
+				final int offerCount = offer.getCount();
+				final int i = count / offerCount;
+				final int y = count % offerCount;
+
+				final int price = (i * offer.getPrice()) + (y * individualPrice.get(sku));
+			}
 
 		}
 		return 50;
@@ -42,5 +50,6 @@ public class CheckoutSolution {
 		}
 	}
 }
+
 
 
