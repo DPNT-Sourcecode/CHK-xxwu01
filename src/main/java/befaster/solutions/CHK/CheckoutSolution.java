@@ -47,6 +47,7 @@ public class CheckoutSolution {
 			final List<Offer> offers = offersMap.get(sku);
 			if (offers != null) {
 				for (final Offer offer : offers) {
+
 					final int offerCount = offer.getCount();
 					final int i = count / offerCount;
 					final int y = count % offerCount;
@@ -82,6 +83,7 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
 
 
