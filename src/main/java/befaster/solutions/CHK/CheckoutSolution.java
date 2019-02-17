@@ -63,6 +63,7 @@ public class CheckoutSolution {
 				} else {
 					final int offerRequiredCount = offer.getRequiredCount();
 					final int i = countInTheBasket / offerRequiredCount;
+
 					countInTheBasket = countInTheBasket % offerRequiredCount;
 
 					intermediatePrice += (i * offer.getPrice());
@@ -112,6 +113,7 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
 
 
