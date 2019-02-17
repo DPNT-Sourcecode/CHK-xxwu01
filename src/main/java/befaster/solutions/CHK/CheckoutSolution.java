@@ -23,7 +23,7 @@ public class CheckoutSolution {
 		individualPrice.put('H', 10);
 		individualPrice.put('I', 35);
 		individualPrice.put('J', 60);
-		individualPrice.put('K', 80);
+		individualPrice.put('K', 70);
 		individualPrice.put('L', 90);
 		individualPrice.put('M', 15);
 		individualPrice.put('N', 40);
@@ -59,7 +59,7 @@ public class CheckoutSolution {
 		offersMap.put('H', offersH);
 
 		final List<Offer> offersK = new ArrayList<>();
-		offersK.add(new Offer(2, 150, null, 0));
+		offersK.add(new Offer(2, 120, null, 0));
 		offersMap.put('K', offersK);
 
 		final List<Offer> offersN = new ArrayList<>();
@@ -211,4 +211,5 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
