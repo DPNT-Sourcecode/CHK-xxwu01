@@ -30,7 +30,11 @@ public class CheckoutSolution {
 		final int any3price = (totalCount / 3) * 45;
 		int leftOver = 0;
 		if (any3price != 0) {
-			leftOver = (totalCount % 3) * findCheapest(present);
+			final Integer[] sortedPrices = sortByPrice(present);
+			final int d = (totalCount % 3);
+			for (int i = 0; i < d; i++) {
+				leftOver += sortedPrices[i];
+			}
 			checkoutBasket.remove('S');
 			checkoutBasket.remove('T');
 			checkoutBasket.remove('X');
@@ -40,12 +44,7 @@ public class CheckoutSolution {
 		return any3price + leftOver;
 	}
 
-	public static void main(final String[] args) {
-		final Integer checkout = new CheckoutSolution().checkout("SSSZ");
-		System.out.println(checkout);
-	}
-
-	private Integer[] findCheapest(final Set<Character> group) {
+	private Integer[] sortByPrice(final Set<Character> group) {
 		final List<Integer> collect = group.stream().map(x -> individualPrice.get(x)).collect(Collectors.toList());
 
 		final Integer[] array = collect.toArray(new Integer[0]);
@@ -255,4 +254,5 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
