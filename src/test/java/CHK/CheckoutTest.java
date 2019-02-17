@@ -154,5 +154,12 @@ public class CheckoutTest {
 		assertEquals(40, checkout);
 	}
 
+	@Test
+	public void testS() {
+		final int checkout = solution.checkout("S");
+		assertEquals(20, checkout);
+	}
+
 }
+
 
