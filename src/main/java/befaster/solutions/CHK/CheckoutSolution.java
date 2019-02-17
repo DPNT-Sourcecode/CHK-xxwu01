@@ -21,7 +21,11 @@ public class CheckoutSolution {
 	}
 
 	public Integer checkout(final String skus) {
-		populateCheckoutBasket(skus);
+		try {
+			populateCheckoutBasket(skus);
+		} catch (final InvalidSkuException e) {
+			return -1;
+		}
 		int totalPrice = 0;
 		final Set<Character> keySet = checkoutBasket.keySet();
 		for (final Character sku : keySet) {
@@ -42,9 +46,12 @@ public class CheckoutSolution {
 		return totalPrice;
 	}
 
-	private void populateCheckoutBasket(final String skus) {
+	private void populateCheckoutBasket(final String skus) throws InvalidSkuException {
 		final char[] charArray = skus.toUpperCase().toCharArray();
 		for (final char sku : charArray) {
+			if (!isValid(sku)) {
+				throw new InvalidSkuException();
+			}
 			Integer currentCount = checkoutBasket.get(sku);
 			if (currentCount == null) {
 				checkoutBasket.put(sku, 1);
@@ -58,6 +65,7 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
 
 
