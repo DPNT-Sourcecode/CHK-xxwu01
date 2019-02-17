@@ -14,13 +14,14 @@ public class CheckoutSolution {
 
 	private final char[] any3 = new char[] { 'S', 'T', 'X', 'Y', 'Z' };
 
-	private void any3() {
+	private int any3() {
 		int totalCount = 0;
 		for (final char c : any3) {
 			totalCount += checkoutBasket.get(c);
 		}
 		final int any3price = (totalCount / 3) * 45;
 		final int leftOver = (totalCount % 3) * findCheapest();
+		return any3price + leftOver;
 	}
 
 	private int findCheapest() {
@@ -119,6 +120,8 @@ public class CheckoutSolution {
 			return -1;
 		}
 		int totalPrice = 0;
+
+		totalPrice += any3();
 		if (checkoutBasket.containsKey('U')) {
 			totalPrice += calculatePriceForFree('U', 4);
 			checkoutBasket.remove('U');
@@ -234,5 +237,6 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
 
