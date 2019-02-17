@@ -47,8 +47,7 @@ public class CheckoutSolution {
 		}
 		int totalPrice = 0;
 		if (checkoutBasket.containsKey('F')) {
-			final int priceForItemsF = calculatePriceForItems('F', checkoutBasket.get('F'));
-			totalPrice += priceForItemsF;
+			totalPrice = calculatePriceForFs();
 			checkoutBasket.remove('F');
 		}
 		if (checkoutBasket.containsKey('E')) {
@@ -97,12 +96,16 @@ public class CheckoutSolution {
 		final int FsInTheBasket = checkoutBasket.get('F');
 		final Integer priceF = individualPrice.get('F');
 		int totalPriceF = 0;
+		int y = 0;
 		for (int i = 1; i <= FsInTheBasket; i++) {
-			totalPriceF += priceF;
-			if (i % 2 == 0) {
-				i++;
+			y++;
+			if (y == 3) {
+				y = 0;
+				continue;
 			}
+			totalPriceF += priceF;
 		}
+		return totalPriceF;
 	}
 
 	private void applyFreeItem(final Character sku, final Offer offer) {
@@ -144,5 +147,6 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
 
