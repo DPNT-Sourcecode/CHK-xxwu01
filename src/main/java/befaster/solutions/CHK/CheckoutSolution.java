@@ -53,7 +53,12 @@ public class CheckoutSolution {
 			}
 		}
 	}
+
+	private boolean isValid(final Character sku) {
+		return individualPrice.containsKey(sku);
+	}
 }
+
 
 
 
