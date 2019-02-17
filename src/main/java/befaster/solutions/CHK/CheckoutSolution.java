@@ -43,18 +43,20 @@ public class CheckoutSolution {
 		int totalPrice = 0;
 		final Set<Character> keySet = checkoutBasket.keySet();
 		for (final Character sku : keySet) {
-			final Integer count = checkoutBasket.get(sku);
+			Integer count = checkoutBasket.get(sku);
 			final List<Offer> offers = offersMap.get(sku);
 			if (offers != null) {
+				int intermediatePrice = 0;
 				for (final Offer offer : offers) {
 
 					final int offerCount = offer.getCount();
 					final int i = count / offerCount;
-					final int y = count % offerCount;
+					count = count % offerCount;
 
-					final int price = (i * offer.getPrice()) + (y * individualPrice.get(sku));
-					totalPrice += price;
+					intermediatePrice += (i * offer.getPrice());
 				}
+				intermediatePrice += count * individualPrice.get(sku);
+				totalPrice += intermediatePrice;
 			} else {
 				totalPrice += count * individualPrice.get(sku);
 			}
@@ -83,8 +85,3 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
-
-
-
-
-
