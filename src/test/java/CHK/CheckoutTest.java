@@ -87,5 +87,12 @@ public class CheckoutTest {
 		final int checkout = solution.checkout("ABCD");
 		assertEquals(115, checkout);
 	}
+
+	@Test
+	public void testE() {
+		final int checkout = solution.checkout("E");
+		assertEquals(40, checkout);
+	}
 }
+
 
