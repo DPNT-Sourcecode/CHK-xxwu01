@@ -20,6 +20,19 @@ public class CheckoutSolution {
 			totalCount += checkoutBasket.get(c);
 		}
 		final int any3price = (totalCount / 3) * 45;
+		final int leftOver = (totalCount % 3) * findCheapest();
+	}
+
+	private int findCheapest() {
+		if (checkoutBasket.containsKey('X')) {
+			return individualPrice.get('X');
+		} else if (checkoutBasket.containsKey('S') || checkoutBasket.containsKey('T')
+				|| checkoutBasket.containsKey('Y')) {
+			return 20;
+		} else if (checkoutBasket.containsKey('Z')) {
+			individualPrice.get('Z');
+		}
+		return 0;
 	}
 
 	public CheckoutSolution() {
@@ -221,4 +234,5 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
