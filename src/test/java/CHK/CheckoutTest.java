@@ -171,6 +171,13 @@ public class CheckoutTest {
 		final int checkout = solution.checkout("ZZZS");
 		assertEquals(65, checkout);
 	}
+
+	@Test
+	public void testCXYZYZC() {
+		final int checkout = solution.checkout("CXYZYZC");
+		assertEquals(122, checkout);
+	}
 }
+
 
 
