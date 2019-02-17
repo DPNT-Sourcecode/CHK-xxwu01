@@ -41,29 +41,35 @@ public class CheckoutSolution {
 			return -1;
 		}
 		int totalPrice = 0;
-		final Set<Character> keySet = checkoutBasket.keySet();
-		for (final Character sku : keySet) {
-			Integer count = checkoutBasket.get(sku);
-			final List<Offer> offers = offersMap.get(sku);
-			if (offers != null) {
-				int intermediatePrice = 0;
-				for (final Offer offer : offers) {
-
-					final int offerCount = offer.getCount();
-					final int i = count / offerCount;
-					count = count % offerCount;
-
-					intermediatePrice += (i * offer.getPrice());
-				}
-				intermediatePrice += count * individualPrice.get(sku);
-				totalPrice += intermediatePrice;
-			} else {
-				totalPrice += count * individualPrice.get(sku);
-			}
-
+		final Set<Character> checkoutSkus = checkoutBasket.keySet();
+		for (final Character sku : checkoutSkus) {
+			final Integer count = checkoutBasket.get(sku);
+			final int priceForItems = calculatePriceForItems(sku, count);
+			totalPrice += priceForItems;
 		}
 		checkoutBasket.clear();
 		return totalPrice;
+	}
+
+	private int calculatePriceForItems(final Character sku, int count) {
+		int price = 0;
+		final List<Offer> offers = offersMap.get(sku);
+		if (offers != null) {
+			int intermediatePrice = 0;
+			for (final Offer offer : offers) {
+
+				final int offerCount = offer.getCount();
+				final int i = count / offerCount;
+				count = count % offerCount;
+
+				intermediatePrice += (i * offer.getPrice());
+			}
+			intermediatePrice += count * individualPrice.get(sku);
+			price += intermediatePrice;
+		} else {
+			price += count * individualPrice.get(sku);
+		}
+		return price;
 	}
 
 	private void populateCheckoutBasket(final String skus) throws InvalidSkuException {
@@ -85,4 +91,5 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
