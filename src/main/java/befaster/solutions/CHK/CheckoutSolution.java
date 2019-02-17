@@ -3,9 +3,11 @@ package befaster.solutions.CHK;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class CheckoutSolution {
 
@@ -17,16 +19,18 @@ public class CheckoutSolution {
 
 	private int processAny3Discounts() {
 		int totalCount = 0;
+		final Set<Character> present = new HashSet<>();
 		for (final char c : any3) {
 			final Integer count = checkoutBasket.get(c);
 			if (count != null) {
 				totalCount += count;
+				present.add(c);
 			}
 		}
 		final int any3price = (totalCount / 3) * 45;
 		int leftOver = 0;
 		if (any3price != 0) {
-			leftOver = (totalCount % 3) * findCheapest();
+			leftOver = (totalCount % 3) * findCheapest(present);
 			checkoutBasket.remove('S');
 			checkoutBasket.remove('T');
 			checkoutBasket.remove('X');
@@ -37,20 +41,23 @@ public class CheckoutSolution {
 	}
 
 	public static void main(final String[] args) {
-		new CheckoutSolution().checkout("SSSZ");
+		final Integer checkout = new CheckoutSolution().checkout("SSSZ");
+		System.out.println(checkout);
 	}
 
-	private int findCheapest() {
-		final Integer priceS = individualPrice.get('S');
-		final Integer priceT = individualPrice.get('T');
-		final Integer priceX = individualPrice.get('X');
-		final Integer priceY = individualPrice.get('Y');
-		final Integer priceZ = individualPrice.get('Z');
+	private int findCheapest(final Set<Character> group) {
+		final List<Integer> collect = group.stream().map(x -> individualPrice.get(x)).collect(Collectors.toList());
+//		final Integer priceS = individualPrice.get('S');
+//		final Integer priceT = individualPrice.get('T');
+//		final Integer priceX = individualPrice.get('X');
+//		final Integer priceY = individualPrice.get('Y');
+//		final Integer priceZ = individualPrice.get('Z');
 
-		final int[] prices = new int[] { priceS, priceT, priceX, priceY, priceZ };
-		Arrays.sort(prices);
+		final Object[] array = collect.toArray();
+//		final int[] prices = new int[] { priceS, priceT, priceX, priceY, priceZ };
+		Arrays.sort(array);
 
-		return prices[0];
+		return (int) array[0];
 	}
 
 	public CheckoutSolution() {
@@ -254,6 +261,7 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
 
 
