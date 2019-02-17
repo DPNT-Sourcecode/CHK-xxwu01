@@ -1,6 +1,7 @@
 package befaster.solutions.CHK;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,16 +28,17 @@ public class CheckoutSolution {
 		return any3price + leftOver;
 	}
 
-	private int findCheapest() {
-		if (checkoutBasket.containsKey('X')) {
-			return individualPrice.get('X');
-		} else if (checkoutBasket.containsKey('S') || checkoutBasket.containsKey('T')
-				|| checkoutBasket.containsKey('Y')) {
-			return 20;
-		} else if (checkoutBasket.containsKey('Z')) {
-			individualPrice.get('Z');
-		}
-		return 0;
+	public int findCheapest() {
+		final Integer priceS = individualPrice.get('S');
+		final Integer priceT = individualPrice.get('T');
+		final Integer priceX = individualPrice.get('X');
+		final Integer priceY = individualPrice.get('Y');
+		final Integer priceZ = individualPrice.get('Z');
+
+		final int[] prices = new int[] { priceS, priceT, priceX, priceY, priceZ };
+		Arrays.sort(prices);
+
+		return prices[0];
 	}
 
 	public CheckoutSolution() {
@@ -240,7 +242,3 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
-
-
-
-
