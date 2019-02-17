@@ -4,10 +4,19 @@ public class Offer {
 
 	private int count;
 	private int price;
+	private Character freeItem;
 
-	public Offer(final int count, final int price) {
+	public Offer(final int count, final int price, final Character feeItem) {
 		this.count = count;
 		this.price = price;
+	}
+
+	public void setFreeItem(final Character freeItem) {
+		this.freeItem = freeItem;
+	}
+
+	public Character getFreeItem() {
+		return freeItem;
 	}
 
 	public int getCount() {
@@ -26,3 +35,4 @@ public class Offer {
 		this.price = price;
 	}
 }
+
