@@ -12,6 +12,8 @@ public class CheckoutSolution {
 	private final Map<Character, List<Offer>> offersMap = new HashMap<>();
 	private final Map<Character, Integer> checkoutBasket = new HashMap<>();
 
+	private final char[] any3 = new char[] { 'S', 'T', 'X', 'Y', 'Z' };
+
 	public CheckoutSolution() {
 		individualPrice.put('A', 50);
 		individualPrice.put('B', 30);
@@ -211,6 +213,7 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
 
 
