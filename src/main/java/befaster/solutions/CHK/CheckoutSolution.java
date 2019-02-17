@@ -79,6 +79,7 @@ public class CheckoutSolution {
 			for (final Offer offer : offers) {
 				if (offer.getFreeItem() != null) {
 					applyFreeItem(sku, offer);
+					countInTheBasket = checkoutBasket.get(sku);
 				} else {
 					final int offerRequiredCount = offer.getRequiredCount();
 					final int i = countInTheBasket / offerRequiredCount;
@@ -136,6 +137,7 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
 
 
