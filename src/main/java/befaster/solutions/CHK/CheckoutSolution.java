@@ -43,6 +43,7 @@ public class CheckoutSolution {
 			}
 
 		}
+		checkoutBasket.clear();
 		return totalPrice;
 	}
 
@@ -65,3 +66,4 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
