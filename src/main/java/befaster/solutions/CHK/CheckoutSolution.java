@@ -36,6 +36,10 @@ public class CheckoutSolution {
 		return any3price + leftOver;
 	}
 
+	public static void main(final String[] args) {
+		new CheckoutSolution().checkout("SSSZ");
+	}
+
 	private int findCheapest() {
 		final Integer priceS = individualPrice.get('S');
 		final Integer priceT = individualPrice.get('T');
@@ -250,5 +254,6 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
 

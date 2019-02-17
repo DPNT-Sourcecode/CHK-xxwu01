@@ -160,4 +160,10 @@ public class CheckoutTest {
 		assertEquals(20, checkout);
 	}
 
+	@Test
+	public void test3SZ() {
+		final int checkout = solution.checkout("SSSZ");
+		assertEquals(65, checkout);
+	}
 }
+
