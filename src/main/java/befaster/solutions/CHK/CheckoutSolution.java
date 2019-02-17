@@ -46,6 +46,11 @@ public class CheckoutSolution {
 			return -1;
 		}
 		int totalPrice = 0;
+		if (checkoutBasket.containsKey('F')) {
+			final int priceForItemsF = calculatePriceForItems('F', checkoutBasket.get('F'));
+			totalPrice += priceForItemsF;
+			checkoutBasket.remove('F');
+		}
 		if (checkoutBasket.containsKey('E')) {
 			final int priceForItemsE = calculatePriceForItems('E', checkoutBasket.get('E'));
 			totalPrice += priceForItemsE;
@@ -121,5 +126,6 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
 
