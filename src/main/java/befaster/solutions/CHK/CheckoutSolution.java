@@ -24,7 +24,15 @@ public class CheckoutSolution {
 			}
 		}
 		final int any3price = (totalCount / 3) * 45;
-		final int leftOver = (totalCount % 3) * findCheapest();
+		int leftOver = 0;
+		if (any3price != 0) {
+			leftOver = (totalCount % 3) * findCheapest();
+			checkoutBasket.remove('S');
+			checkoutBasket.remove('T');
+			checkoutBasket.remove('X');
+			checkoutBasket.remove('Y');
+			checkoutBasket.remove('Z');
+		}
 		return any3price + leftOver;
 	}
 
@@ -242,4 +250,5 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
