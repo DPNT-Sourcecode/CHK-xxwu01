@@ -22,7 +22,7 @@ public class Offer {
 		return freeItem;
 	}
 
-	public int getCount() {
+	public int getRequiredCount() {
 		return count;
 	}
 
@@ -31,3 +31,4 @@ public class Offer {
 	}
 
 }
+
