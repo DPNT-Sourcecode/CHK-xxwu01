@@ -1,5 +1,6 @@
 package befaster.solutions.CHK;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,8 +18,14 @@ public class CheckoutSolution {
 		individualPrice.put('C', 20);
 		individualPrice.put('D', 15);
 
-		offersMap.put('A', new Offer(3, 130));
-		offersMap.put('B', new Offer(2, 45));
+		final List<Offer> offersA = new ArrayList<>();
+		offersA.add(new Offer(5, 200));
+		offersA.add(new Offer(3, 130));
+		offersMap.put('A', offersA);
+
+		final List<Offer> offersB = new ArrayList<>();
+		offersB.add(new Offer(2, 45));
+		offersMap.put('B', offersB);
 	}
 
 	public Integer checkout(final String skus) {
@@ -68,4 +75,5 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
