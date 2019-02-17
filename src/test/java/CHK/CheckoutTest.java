@@ -178,7 +178,3 @@ public class CheckoutTest {
 		assertEquals(82, checkout);
 	}
 }
-
-
-
-
