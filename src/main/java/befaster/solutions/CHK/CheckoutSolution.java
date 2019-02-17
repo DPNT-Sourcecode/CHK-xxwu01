@@ -35,6 +35,10 @@ public class CheckoutSolution {
 		individualPrice.put('T', 20);
 		individualPrice.put('U', 40);
 		individualPrice.put('V', 50);
+		individualPrice.put('W', 20);
+		individualPrice.put('X', 90);
+		individualPrice.put('Y', 10);
+		individualPrice.put('Z', 50);
 
 		final List<Offer> offersA = new ArrayList<>();
 		offersA.add(new Offer(5, 200, null, 0));
@@ -201,6 +205,7 @@ public class CheckoutSolution {
 		return individualPrice.containsKey(sku);
 	}
 }
+
 
 
 
